@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "892209307761",
+    "firebase_url": "https://break-app-1ce0a.firebaseio.com",
+    "project_id": "break-app-1ce0a",
+    "storage_bucket": "break-app-1ce0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892209307761:android:67bce6667c7e896e",
+        "android_client_info": {
+          "package_name": "org.jarucas.breakapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892209307761-dpiq3v10blkg5cvca6vnu3pv3sih1cku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.jarucas.breakapp",
+            "certificate_hash": "8eac400510c5726c416c3322d08804aced41294f"
+          }
+        },
+        {
+          "client_id": "892209307761-bacqnib0nnlbg6hmcp90fktov7oo6sk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfZieb1mTrEdE-o2AP7DF2_W_Qm8MOOSE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892209307761-bacqnib0nnlbg6hmcp90fktov7oo6sk3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

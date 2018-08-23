@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Break App</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_profile">Profile</string>
+    <string name="close_session">Close Session</string>
+    <string name="menu_tutorial">Tutorial</string>
+    <string name="tutorial_title_1">Find the Place</string>
+    <string name="tutorial_title_2">Sit and Scan</string>
+    <string name="tutorial_title_3">Command and Pay</string>
+    <string name="tutorial_title_4">Enjoy and Review</string>
+    <string name="tutorial_desc_1">Look in the map for nearby places where you can have a Break</string>
+    <string name="tutorial_desc_2">You need to scan the table code in order to make a command, unless you\'re usual customer</string>
+    <string name="tutorial_desc_3">Make your commands easily and pay for it, No queues or waiting!</string>
+    <string name="tutorial_desc_4">Enjoy your break, Don\'t forget to make a review if the place suits you!</string>
+    <string name="tutorial_button_end">Get Started</string>
+    <string name="tutorial_button">Next</string>
+    <string name="Login_welcome">Wellcome, </string>
+    <string name="login_verify">You must verify your user</string>
+    <string name="login_error_cancelled">Cancelled</string>
+    <string name="login_error_internet">No internet connection</string>
+    <string name="login_error_unknown">Unknown error</string>
+    <string name="profile_title">Profile</string>
+
+</resources>

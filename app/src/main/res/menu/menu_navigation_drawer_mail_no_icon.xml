@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile"
+            android:checked="true"
+            android:title="@string/menu_profile"
+            />
+    </group>
+
+    <group
+        android:id="@+id/grp_2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_finder"
+            android:title="Find a Place"
+            />
+        <item
+            android:id="@+id/nav_scan"
+            android:title="Scan Table"
+            />
+    </group>
+
+    <item
+        android:checkableBehavior="single"
+        android:title="All labels">
+
+        <group
+            android:id="@+id/grp_3"
+            android:checkableBehavior="single">
+            <item
+                android:id="@+id/nav_bills"
+                android:title="Bills" />
+            <item
+                android:id="@+id/nav_places"
+                android:title="Places" />
+            <item
+                android:id="@+id/nav_reviews"
+                android:title="Reviews" />
+        </group>
+    </item>
+
+    <group
+        android:id="@+id/grp_5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tutorial"
+            android:title="@string/menu_tutorial" />
+        <item
+            android:id="@+id/nav_close"
+            android:title="@string/close_session" />
+    </group>
+
+</menu>
