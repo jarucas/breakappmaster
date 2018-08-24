@@ -1,6 +1,7 @@
 package org.jarucas.breakapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
@@ -8,15 +9,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -29,6 +29,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.jarucas.breakapp.dao.User;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private GoogleMap mMap;
     private UserLockBottomSheetBehavior bottomSheetBehavior;
     private FloatingActionButton floatingActionButton;
+    private NavigationView nav_view;
     private List<Object> places;
 
     @Override
@@ -47,6 +50,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         places = downloadPlacesList();
         initNavigationMenu();
+        loadUserInformation();
         initMapsFragment();
         initComponents();
     }
@@ -57,7 +61,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void initNavigationMenu() {
-        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+        nav_view = (NavigationView) findViewById(R.id.nav_view);
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         final ImageButton imageButton = (ImageButton) findViewById(R.id.bt_menu);
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +120,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-                   //TODO
+                    //TODO
 
                 } else {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -132,6 +136,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         AuthUI.getInstance().signOut(this).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                App.setmUser(null);
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
@@ -193,5 +198,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ((TextView) findViewById(R.id.placeSchedule)).setText("L-D: 9AM - 20PM");
         ((AppCompatRatingBar) findViewById(R.id.placeRating)).setRating(4.5f);
         //TODO
+    }
+
+    private void loadUserInformation() {
+        final User user = App.getmUser();
+        final String displayName = user.getDisplayName();
+        final String email = user.getEmail();
+        final Uri photoURL = Uri.parse(user.getPhotoUrl());
+        final View headerView = nav_view.getHeaderView(0);
+
+        final TextView tvEmail = (TextView) headerView.findViewById(R.id.drawer_email);
+        final TextView tvName = (TextView) headerView.findViewById(R.id.drawer_name);
+        final ImageView ivimageDrawer = (ImageView) headerView.findViewById(R.id.drawer_img);
+
+        tvEmail.setText(email);
+        tvName.setText(displayName);
+        GlideApp.with(getApplicationContext()).load(photoURL).fitCenter().into(ivimageDrawer);
     }
 }

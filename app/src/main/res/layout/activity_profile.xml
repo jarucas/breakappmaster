@@ -43,7 +43,7 @@
                 android:src="@drawable/image_10" />
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/image"
+                android:id="@+id/profile_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="-45dp"
@@ -53,6 +53,7 @@
                 app:civ_border_width="2dp" />
 
             <TextView
+                android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_middle"
@@ -76,6 +77,7 @@
                     app:srcCompat="@drawable/ic_email" />
 
                 <TextView
+                    android:id="@+id/profile_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="jarucas92@gmail.com"
