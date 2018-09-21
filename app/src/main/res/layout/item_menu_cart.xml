@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemlayout"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:orientation="horizontal">
+
+    <include
+        android:id="@+id/swipeundo"
+        layout="@layout/item_swipe_undo" />
+
+    <ImageButton
+        android:id="@+id/categoryib"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/spacing_xmlarge"
+        android:background="@android:color/transparent"
+        android:tint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_local_cafe" />
+
+    <View
+        android:layout_width="@dimen/spacing_middle"
+        android:layout_height="0dp" />
+
+    <TextView
+        android:id="@+id/itemtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/spacing_xmlarge"
+        android:text="Coffee Late"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/grey_40" />
+
+    <TextView
+        android:id="@+id/itemprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/spacing_xmlarge"
+        android:text="1.40€"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/colorPrimary" />
+    <!--android:textColor="@color/red_700" />-->
+
+
+</LinearLayout>

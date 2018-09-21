@@ -40,7 +40,7 @@
                 android:layout_height="150dp"
                 android:foreground="@color/overlay_dark_30"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image_10" />
+                android:src="@drawable/material_bg_1" />
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/profile_image"
@@ -104,6 +104,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_settings"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -118,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Settings"
+                        android:text="@string/profile_settings"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
@@ -131,6 +132,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_payment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -145,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Payment"
+                        android:text="@string/profile_payment"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
@@ -158,6 +160,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_places"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -172,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Places"
+                        android:text="@string/profile_places"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
@@ -194,6 +197,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_friends"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -208,7 +212,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Friends"
+                        android:text="@string/profile_friends"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
@@ -221,6 +225,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_bills"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -235,7 +240,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Bills"
+                        android:text="@string/profile_bills"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>
@@ -248,6 +253,7 @@
                     android:orientation="vertical">
 
                     <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab_reviews"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -262,7 +268,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_medium"
-                        android:text="Reviews"
+                        android:text="@string/profile_reviews"
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2" />
 
                 </LinearLayout>

@@ -109,9 +109,11 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="android.arch.core:runtime-1.1.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-measurement-connector-16.0.0" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-clearcut-15.0.1" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="io.grpc:grpc-core:1.12.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support:design-27.1.1" level="project" />
+    <orderEntry type="library" name="com.wdullaer:materialdatetimepicker-3.2.0" level="project" />
     <orderEntry type="library" name="com.google.protobuf:protobuf-lite:3.0.1@jar" level="project" />
     <orderEntry type="library" name="io.opencensus:opencensus-contrib-grpc-metrics:0.11.0@jar" level="project" />
     <orderEntry type="library" name="com.android.support:transition-27.1.1" level="project" />
@@ -135,6 +137,7 @@
     <orderEntry type="library" name="android.arch.lifecycle:viewmodel-1.1.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-flags-15.0.1" level="project" />
     <orderEntry type="library" name="com.github.bumptech.glide:gifdecoder-4.8.0" level="project" />
+    <orderEntry type="library" name="com.hootsuite.android:nachos-1.1.1" level="project" />
     <orderEntry type="library" scope="TEST" name="com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-impl-16.1.1" level="project" />
@@ -154,6 +157,7 @@
     <orderEntry type="library" name="com.google.firebase:firebase-firestore-17.1.0" level="project" />
     <orderEntry type="library" name="android.arch.core:common:1.1.1@jar" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-auth-interop-16.0.0" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-vision-common-15.0.2" level="project" />
     <orderEntry type="library" name="com.android.support:customtabs-27.1.1" level="project" />
     <orderEntry type="library" name="com.android.support.constraint:constraint-layout-1.1.2" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.7@jar" level="project" />
@@ -170,9 +174,11 @@
     <orderEntry type="library" name="com.android.support:support-compat-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-database-collection-15.0.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-common-16.0.1" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-vision-15.0.2" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:livedata-core-1.1.1" level="project" />
     <orderEntry type="library" name="io.opencensus:opencensus-api:0.11.0@jar" level="project" />
     <orderEntry type="library" name="android.arch.lifecycle:common:1.1.1@jar" level="project" />
+    <orderEntry type="library" name="com.google.android.gms:play-services-phenotype-15.0.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-ads-identifier-15.0.1" level="project" />
     <orderEntry type="library" name="com.google.firebase:protolite-well-known-types-16.0.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-fragment-27.1.1" level="project" />

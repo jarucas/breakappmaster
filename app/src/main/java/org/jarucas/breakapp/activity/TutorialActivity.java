@@ -1,4 +1,4 @@
-package org.jarucas.breakapp;
+package org.jarucas.breakapp.activity;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.jarucas.breakapp.App;
+import org.jarucas.breakapp.R;
 import org.jarucas.breakapp.utils.Utils;
 
 //TODO this activity should be called first time the app gets executed
@@ -36,15 +38,15 @@ public class TutorialActivity extends AppCompatActivity {
             getAppString(R.string.tutorial_desc_3),
             getAppString(R.string.tutorial_desc_4),};
     private int aboutImagesArray[] = {
+            R.drawable.ic_location,
+            R.drawable.ic_photo_camera,
             R.drawable.img_wizard_2,
-            R.drawable.img_wizard_2,
-            R.drawable.img_wizard_2,
-            R.drawable.img_wizard_2};
+            R.drawable.ic_star};
     private int bgImagesArray[] = {
-            R.drawable.image_11,
-            R.drawable.image_10,
-            R.drawable.image_7,
-            R.drawable.image_24};
+            R.drawable.imagetutorial1,
+            R.drawable.imagetutorial2,
+            R.drawable.imagetutorial3,
+            R.drawable.imagetutorial4};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

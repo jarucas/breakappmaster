@@ -1,4 +1,4 @@
-package org.jarucas.breakapp;
+package org.jarucas.breakapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -19,7 +18,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.jarucas.breakapp.dao.User;
+import org.jarucas.breakapp.App;
+import org.jarucas.breakapp.R;
+import org.jarucas.breakapp.dto.UserModel;
+import org.jarucas.breakapp.utils.Utils;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -36,24 +38,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //getFacebookPackageHash();
         login();
     }
 
-    private void login() {
-
-        final FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
-
-        if (usuario != null) {
-            checkUserVerification(usuario);
-            final String uid = usuario.getUid();
-            final FirebaseFirestore db = FirebaseFirestore.getInstance();
-            loadUserInformation(usuario, uid, db);
-            //TODO - loading animation
-
-        } else {
-            createSignInIntent();
-        }
-    }
 
     private void loadUserInformation(final FirebaseUser usuario, final String uid, final FirebaseFirestore db) {
         db.collection("users").whereEqualTo("guid", uid).get()
@@ -63,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             final QuerySnapshot userSnapshot = task.getResult();
                             if (userSnapshot.isEmpty()) {
-                                Log.d("LoginActivity", "User does not exist in Database. It will be created");
+                                Log.d("LoginActivity", "UserModel does not exist in Database. It will be created");
                                 createAuthenticatedUser(uid, usuario, db);
-                                Log.d("LoginActivity", "User created into database");
+                                Log.d("LoginActivity", "UserModel created into database");
                             } else {
                                 final List<DocumentSnapshot> documents = userSnapshot.getDocuments();
                                 if (documents.size() > 1) {
@@ -73,9 +61,9 @@ public class LoginActivity extends AppCompatActivity {
                                     finish();
                                 }
 
-                                final User user = documents.iterator().next().toObject(User.class);
+                                final UserModel user = documents.iterator().next().toObject(UserModel.class);
                                 App.setmUser(user);
-                                Log.d("LoginActivity", "User information retrieved succesfully");
+                                Log.d("LoginActivity", "UserModel information retrieved succesfully");
                             }
                             loginSuccessfull(usuario);
                         } else {
@@ -86,9 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private void createAuthenticatedUser(final String uid, final FirebaseUser usuario, final FirebaseFirestore db) {
+    public static void createAuthenticatedUser(final String uid, final FirebaseUser usuario, final FirebaseFirestore db) {
         //TODO - Move to a Users class
-        final User user = new User(uid, usuario.getDisplayName(), usuario.getEmail(),
+        final UserModel user = new UserModel(uid, usuario.getDisplayName(), usuario.getEmail(),
                 new Date().getTime(), new Date().getTime(), usuario.getPhoneNumber(),
                 usuario.getPhotoUrl().toString(), null, null, null,
                 usuario.getProviders(), null);
@@ -99,16 +87,21 @@ public class LoginActivity extends AppCompatActivity {
     private void createSignInIntent() {
         final List<AuthUI.IdpConfig> availableProviders = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
+                new AuthUI.IdpConfig.GoogleBuilder().build()
+        );
 
         final Intent i = AuthUI.getInstance()
-                .createSignInIntentBuilder().setAvailableProviders(availableProviders).setIsSmartLockEnabled(IS_SMART_LOCK_ENABLED).build();
+                .createSignInIntentBuilder()
+                .setLogo(R.mipmap.ic_launcher_round)
+                .setTheme(R.style.AppTheme_NoActionBar)
+                .setAvailableProviders(availableProviders)
+                .setIsSmartLockEnabled(IS_SMART_LOCK_ENABLED).build();
 
         startActivityForResult(i, RC_SIGN_IN);
     }
 
     private void loginSuccessfull(final FirebaseUser usuario) {
-        Toast.makeText(this, getString(R.string.Login_welcome) + " " + usuario.getDisplayName(), Toast.LENGTH_LONG).show();
+        Utils.showCustomToast(this, getString(R.string.Login_welcome) + " " + usuario.getDisplayName());
         Intent i = new Intent(this, MapsActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
@@ -126,11 +119,11 @@ public class LoginActivity extends AppCompatActivity {
                 final IdpResponse response = IdpResponse.fromResultIntent(data);
 
                 if (response == null) {
-                    Toast.makeText(this, R.string.login_error_cancelled, Toast.LENGTH_LONG).show();
+                    Utils.showCustomToast(this, getString(R.string.login_error_cancelled));
                 } else if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    Toast.makeText(this, R.string.login_error_internet, Toast.LENGTH_LONG).show();
+                    Utils.showCustomToast(this, getString(R.string.login_error_internet));
                 } else if (response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR) {
-                    Toast.makeText(this, R.string.login_error_unknown, Toast.LENGTH_LONG).show();
+                    Utils.showCustomToast(this, getString(R.string.login_error_unknown));
                 }
             }
         }
@@ -139,8 +132,39 @@ public class LoginActivity extends AppCompatActivity {
     private void checkUserVerification(final FirebaseUser usuario) {
         if (!usuario.isEmailVerified()) {
             usuario.sendEmailVerification();
-            Toast.makeText(this, R.string.login_verify, Toast.LENGTH_LONG).show();
+            Utils.showCustomToast(this, getString(R.string.login_verify));
+            //TODO Verification Activity
             finish();
         }
     }
+
+
+    private void login() {
+
+        final FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (usuario != null) {
+            checkUserVerification(usuario);
+            final String uid = usuario.getUid();
+            final FirebaseFirestore db = FirebaseFirestore.getInstance();
+            loadUserInformation(usuario, uid, db);
+            //TODO - loading animation
+
+        } else {
+            createSignInIntent();
+        }
+    }
+
+    //    public static void getFacebookPackageHash() {
+//        try {
+//            PackageInfo info = App.getContext().getPackageManager().getPackageInfo("org.jarucas.breakapp", PackageManager.GET_SIGNATURES);
+//            for (Signature signature : info.signatures) {
+//                MessageDigest md = MessageDigest.getInstance("SHA");
+//                md.update(signature.toByteArray());
+//                Log.d("LoginActivity", "KeyHash:" + Base64.encodeToString(md.digest(), Base64.DEFAULT));
+//            }
+//        } catch (final PackageManager.NameNotFoundException e) {
+//        } catch (final NoSuchAlgorithmException e) {
+//        }
+//    }
 }

@@ -1,4 +1,10 @@
 <resources>
+    <string name="zomato_key" templateMergeStrategy="preserve" translatable="false">334b601b63273542fffd0031fe6e9968</string>
+    <string name="zomato_api"><![CDATA[https://developers.zomato.com/api/v2.1/search?lat=-33.92127&lon=18.4180213&count=50]]></string>
+
+    <string name="facebook_application_id" translatable="false">332442477330790</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb332442477330790</string>
+
     <string name="app_name">Break App</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="action_settings">Settings</string>
@@ -10,6 +16,7 @@
     <string name="menu_profile">Profile</string>
     <string name="close_session">Close Session</string>
     <string name="menu_tutorial">Tutorial</string>
+
     <string name="tutorial_title_1">Find the Place</string>
     <string name="tutorial_title_2">Sit and Scan</string>
     <string name="tutorial_title_3">Command and Pay</string>
@@ -20,11 +27,81 @@
     <string name="tutorial_desc_4">Enjoy your break, Don\'t forget to make a review if the place suits you!</string>
     <string name="tutorial_button_end">Get Started</string>
     <string name="tutorial_button">Next</string>
+
     <string name="Login_welcome">Wellcome, </string>
     <string name="login_verify">You must verify your user</string>
     <string name="login_error_cancelled">Cancelled</string>
     <string name="login_error_internet">No internet connection</string>
     <string name="login_error_unknown">Unknown error</string>
+
     <string name="profile_title">Profile</string>
+    <string name="fui_default_toolbar_title">Authentication type</string>
+    <string name="fui_sign_in_with_email">Login with Email</string>
+    <string name="fui_progress_dialog_signing_up">Creating account...</string>
+
+    <string name="profile_settings">Settings</string>
+    <string name="profile_payment">Payment</string>
+    <string name="profile_places">Places</string>
+    <string name="profile_friends">Friends</string>
+    <string name="profile_bills">Bills</string>
+    <string name="profile_reviews">Reviews</string>
+    <string name="profile_edit">Edit profile</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_phone">Contact Number</string>
+    <string name="profile_birthdate">Birth Date</string>
+    <string name="profile_spam">Receive News</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_surname">Surname</string>
+
+    <string name="myplaces_empty">You have no places</string>
+    <string name="myplaces_empty2">Go to the map and find one</string>
+    <string name="myplaces_title">My Places</string>
+
+    <string name="myfriends_message">You have no friends</string>
+    <string name="mybills_empty">You have no bills</string>
+    <string name="mypayment_title">Payment methods</string>
+    <string name="mybills_title">My Bills</string>
+    <string name="myfriends_title">My Friends</string>
+    <string name="mypayment_empty">You have no Cards</string>
+    <string name="mypayment_emtymessage">Add your first Payment Card touchng the + button</string>
+
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+    </string>
+
+    <string name="short_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+    <string name="middle_lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin</string>
+    <string name="medium_lorem_ipsum">Quisque imperdiet nunc at massa dictum volutpat. Etiam id orci ipsum. Integer id ex dignissim</string>
+
+    <string name="long_lorem_ipsum">
+        Duis tellus metus, elementum a lectus id, aliquet interdum mauris. Nam bibendum efficitur sollicitudin. Proin eleifend libero velit, nec fringilla dolor finibus quis. nMorbi eu libero pellentesque, rutrum metus quis, blandit est. Fusce bibendum accumsan nisi vulputate feugiat. In fermentum laoreet euismod. Praesent sem nisl, facilisis eget odio at, rhoncus scelerisque ipsum. Nulla orci dui, dignissim a risus ut, lobortis porttitor velit.
+        \n\nNulla id lectus metus. Maecenas a lorem in odio auctor facilisis non vitae nunc. Sed malesuada volutpat massa. Praesent sit amet lacinia augue, mollis tempor dolor.
+    </string>
+
+    <string name="very_long_lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor risus, aliquet a erat quis, viverra molestie orci. Suspendisse vehicula porta libero. Nam tincidunt nulla ipsum, vel iaculis risus scelerisque sed. Phasellus venenatis, enim vel placerat blandit, leo eros bibendum erat, at auctor mauris diam ac risus. Aenean sit amet congue neque, sit amet condimentum elit. Fusce lacinia massa vel nisl scelerisque, in scelerisque dolor elementum. Vivamus leo enim, congue dictum congue vitae, porttitor id purus. Sed eu ultricies erat. Morbi hendrerit, mi ac volutpat commodo, magna turpis pretium nibh, at fringilla eros lorem quis tellus. Praesent porttitor purus nibh, ac vestibulum massa fringilla vel. Pellentesque dapibus nulla quis luctus dictum. In scelerisque ut ex sed facilisis. Nunc eu finibus nulla, ut hendrerit sem. Suspendisse accumsan risus vel diam fringilla iaculis.
+        \n\nQuisque facilisis finibus aliquam. Sed mattis, dui fringilla ornare finibus, orci odio blandit risus, ut maximus dui odio non leo. Donec laoreet lacus nisi, a mollis velit suscipit ac. Quisque faucibus ut nisl in congue. Nam sagittis consectetur tempus. Suspendisse eget posuere dui. Donec ultricies velit ex, vel cursus odio sollicitudin in. Nullam faucibus auctor ligula, eu rhoncus dui facilisis a. Curabitur vel feugiat est. Quisque congue at enim eleifend ultrices. Proin dapibus risus lorem, nec condimentum nunc consequat vitae. Quisque sapien lorem, vestibulum vitae justo eget, fringilla eleifend nisi.
+        \n\nMauris ultricies augue sit amet est sollicitudin laoreet. Fusce ut congue felis. Fusce dictum tristique elit nec iaculis. Mauris sodales tempus fringilla. Fusce nec nunc tempus, tempor sapien sit amet, ultricies erat. Mauris ultrices ac lorem ultrices facilisis. Nam pharetra, nisi a imperdiet interdum, nunc justo ultricies nisl, a laoreet massa dui vel enim. Pellentesque et magna ac tellus ullamcorper malesuada a ac nisl. Curabitur id est et neque convallis accumsan. Aliquam eleifend varius massa. Curabitur eu finibus tortor.
+        \n\nVivamus aliquam nisl rutrum orci volutpat porta in ornare est. Quisque ligula ipsum, vulputate id aliquam vitae, semper vitae orci. Nam non pulvinar ligula, eget tincidunt ante. Quisque sapien massa, varius tempus pretium id, vehicula at magna. Ut ut ultrices augue. Nam nec ullamcorper tellus, at finibus lectus. Fusce vel iaculis mauris, id porta nulla. Aenean ac mollis sapien. Morbi imperdiet augue tempus nulla luctus, sit amet feugiat purus elementum.
+        \n\nIn sit amet rutrum diam. Vivamus laoreet aliquam ipsum eget pretium. Mauris sagittis non elit quis fermentum. Aenean at diam nec tortor maximus rutrum. Sed nec nulla volutpat quam suscipit varius non at erat. Pellentesque non euismod diam, nec dapibus quam. Aliquam et posuere massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam eu nibh sed diam posuere tincidunt et non felis. Aliquam sodales facilisis tortor, at maximus ante varius quis.
+        \n\nSuspendisse ornare est ac auctor pulvinar. Nam in venenatis risus. In facilisis tristique mollis. Curabitur tempus ipsum eget ipsum pharetra ornare. Quisque imperdiet nunc at massa dictum volutpat. Etiam id orci ipsum. Integer id ex dignissim est blandit sollicitudin non ut felis. Mauris nec mattis lacus. Cras consequat sapien a nisl faucibus, id consequat velit aliquet. Donec tincidunt quam elit, et scelerisque ipsum aliquet ac. Suspendisse lectus enim, auctor non justo et, vehicula consectetur nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum ipsum vitae ligula interdum vulputate. Aenean bibendum molestie pharetra. Praesent aliquam, sapien ac rutrum rhoncus, enim mauris lacinia ligula, vitae fermentum purus lacus nec ex. Donec vel dolor pulvinar, dignissim nunc id, tempus risus.
+        \n\nPhasellus blandit, leo ut semper vulputate, dui est fringilla purus, eu ullamcorper leo quam ut odio. Nunc tincidunt est eros, a dapibus massa hendrerit in. Aenean pellentesque ante eu justo pulvinar, eget sodales diam auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent vulputate nunc ut lorem viverra, ac condimentum sem vehicula. Etiam in dui quam. Aenean tincidunt porttitor dignissim. Aenean id est erat. Praesent tempus est ullamcorper tincidunt ultricies. Mauris ac velit lorem. Maecenas quis dui vel neque aliquet mattis aliquet et ante.
+        \n\nVivamus porttitor, erat at aliquam mollis, risus ligula suscipit metus, id semper nisi dui lacinia leo. Praesent at feugiat sem. Vivamus consectetur arcu sit amet metus efficitur dapibus. Sed metus ligula, efficitur quis finibus nec, pellentesque nec nulla. Nunc nec magna iaculis turpis vehicula condimentum id lobortis lectus. Etiam tempus nisi arcu, in condimentum felis vestibulum vitae. Donec fermentum dolor consequat nulla dignissim, non tempus leo viverra. Aenean magna magna, ultricies ut rutrum et, malesuada non nibh. Nam ligula erat, elementum sit amet justo eget, venenatis hendrerit nibh. In ac ipsum nunc. Nullam purus dolor, rhoncus eu justo id, vulputate ultrices nunc. Nam et risus velit. Fusce aliquam blandit urna quis pulvinar. Donec luctus tincidunt ipsum eu condimentum. Etiam porttitor dui in pulvinar vulputate.
+        \n\nQuisque augue diam, convallis nec mollis in, placerat nec elit. Aliquam non erat tristique, consequat tortor ultricies, sodales erat. Aliquam quis enim eu nulla facilisis sollicitudin eu mollis mauris. Donec ornare urna non libero volutpat tempus. Mauris elementum egestas ex, a laoreet urna. Ut a magna mattis, sodales massa a, blandit justo. Nunc placerat ante quis lacus dictum dictum vitae eu nisi. Fusce quis est sodales justo sollicitudin mollis. Suspendisse posuere, augue a ultricies lacinia, tortor tortor faucibus purus, pulvinar suscipit erat orci varius arcu. Phasellus id nisl vitae eros dignissim consectetur. Ut ac ex ac arcu vestibulum sagittis sit amet a massa.
+        \n\nSuspendisse elit libero, placerat vel ipsum vitae, tristique faucibus nulla. Aliquam ac elit porttitor, vestibulum turpis nec, bibendum dui. Vivamus quam orci, consequat in scelerisque id, dignissim vel purus. Proin rhoncus ante eu nisi dictum lacinia. Proin congue tempor nunc, eu semper elit tincidunt ut. Duis vehicula purus at lorem sollicitudin porttitor. Nulla facilisi. Donec non dapibus neque. Donec neque massa, sodales vitae eros nec, lacinia vestibulum neque. Nullam venenatis vitae tortor sed fermentum. Aenean massa enim, placerat eu ligula quis, tincidunt rutrum purus. Ut tincidunt egestas varius.
+    </string>
+    <string name="ERROR_UNKNOWN">UNKNOWN ERROR</string>
+    <string name="error_unknown_desc">Something went wrong. Please try again later.</string>
+    <string name="myreviews_empty1">You have no reviews</string>
+    <string name="myrevies_empty2">You can write a review if you visit a place</string>
+    <string name="myreviews_title">My Reviews</string>
 
 </resources>

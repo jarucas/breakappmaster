@@ -1,12 +1,13 @@
-package org.jarucas.breakapp.dao;
+package org.jarucas.breakapp.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Javier on 24/08/2018.
  */
 
-public class User {
+public class UserModel {
 
     private String guid;
 
@@ -32,13 +33,15 @@ public class User {
 
     private List<String> reviews;
 
-    public User() {
+    private List<InvoiceModel> invoiceModelList;
+
+    public UserModel() {
         // Empty Constructor
     }
 
-    public User(String guid, String displayName, String email, Long registrationDate,
-                Long lastLogin, String phone, String photoUrl, List<String> bills, List<String> placeVisits,
-                List<String> places, List<String> providers, List<String> reviews) {
+    public UserModel(String guid, String displayName, String email, Long registrationDate,
+                     Long lastLogin, String phone, String photoUrl, List<String> bills, List<String> placeVisits,
+                     List<String> places, List<String> providers, List<String> reviews) {
         this.guid = guid;
         this.displayName = displayName;
         this.email = email;
@@ -147,5 +150,49 @@ public class User {
 
     public void setReviews(List<String> reviews) {
         this.reviews = reviews;
+    }
+
+    public List<InvoiceModel> getInvoiceModelList() {
+        return invoiceModelList;
+    }
+
+    public void setInvoiceModelList(List<InvoiceModel> invoiceModelList) {
+        this.invoiceModelList = invoiceModelList;
+    }
+
+    public void addInvoice(final InvoiceModel invoice) {
+        if (invoiceModelList == null) {
+            invoiceModelList = new ArrayList<>();
+        }
+        invoiceModelList.add(invoice);
+    }
+
+    public void addBill(final String code) {
+        if (bills == null) {
+            bills = new ArrayList<>();
+        }
+        bills.add(code);
+    }
+
+    public void addPlaceVisit(final String placeCode) {
+        if (placeVisits == null) {
+            placeVisits = new ArrayList<>();
+        }
+
+        for (String code : placeVisits) {
+            if (code.equals(placeCode)) {
+                return;
+            }
+        }
+
+        placeVisits.add(placeCode);
+    }
+
+    public void addReview(final String reviewCode) {
+        if (reviews == null) {
+            reviews = new ArrayList<>();
+        }
+
+        reviews.add(reviewCode);
     }
 }
