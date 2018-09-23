@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -54,11 +55,12 @@ public class MyPlacesActivity extends AppCompatActivity {
 
     private void downloadPlacesList() {
         final List<String> placeVisits = App.getmUser().getPlaceVisits();
-        final FirebaseFirestore db = FirebaseFirestore.getInstance();
-        for (String placeCode : placeVisits) {
-            downloadPlace(db, placeCode);
+        if(placeVisits!= null){
+            final FirebaseFirestore db = FirebaseFirestore.getInstance();
+            for (String placeCode : placeVisits) {
+                downloadPlace(db, placeCode);
+            }
         }
-        //TODO
     }
 
     private void downloadPlace(final FirebaseFirestore db, final String code) {
@@ -110,7 +112,7 @@ public class MyPlacesActivity extends AppCompatActivity {
         params.height = Utils.getScreenWidth();
         bgImage.setLayoutParams(params);
 
-        if (App.getmUser().getPlaceVisits().isEmpty()) {
+        if (CollectionUtils.isEmpty(App.getmUser().getPlaceVisits())) {
             emptyListView.setVisibility(View.VISIBLE);
         } else {
             emptyListView.setVisibility(View.GONE);

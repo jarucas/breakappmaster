@@ -99,7 +99,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         final String[] displayNames = user.getDisplayName().split(" ");
         etName.setText(displayNames[0]);
-        etSurname.setText(displayNames[1] + " " + displayNames[2]);
+        etSurname.setText(displayNames.length>2 ? displayNames[1] + " " + (displayNames.length>=3?displayNames[2]:"") : "");
         etPhone.setText(user.getPhone());
         etEmail.setText(user.getEmail());
 

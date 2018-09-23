@@ -1,6 +1,5 @@
 package org.jarucas.breakapp.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -112,17 +112,19 @@ public class MyReviewsActivity extends AppCompatActivity {
     }
 
     private void populatePendingReviews() {
-        //TODO if reviews empty
+        //TODO Refactor this method
         final UserModel user = App.getmUser();
         final List<String> placesToDownload = new ArrayList<>();
         final List<String> placeVisits = user.getPlaceVisits();//nullcheck
-        placesToDownload.addAll(placeVisits);
-        if (!reviews.isEmpty() && !placeVisits.isEmpty()) {
-            for (final String placeCode : placeVisits) {
-                for (final ReviewModel reviewModel : reviews) {
-                    if (placeCode.equals(reviewModel.getPlaceCode())) {
-                        placesToDownload.remove(placeCode);
-                        break;
+        if (!CollectionUtils.isEmpty(placeVisits)) {
+            placesToDownload.addAll(placeVisits);
+            if (!CollectionUtils.isEmpty(reviews)) {
+                for (final String placeCode : placeVisits) {
+                    for (final ReviewModel reviewModel : reviews) {
+                        if (placeCode.equals(reviewModel.getPlaceCode())) {
+                            placesToDownload.remove(placeCode);
+                            break;
+                        }
                     }
                 }
             }

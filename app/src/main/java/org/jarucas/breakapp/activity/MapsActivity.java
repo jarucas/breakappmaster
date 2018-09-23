@@ -235,6 +235,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         i = new Intent(getApplicationContext(), ProfileActivity.class);
                         startActivity(i);
                         break;
+                    case R.id.nav_finder:
+                         drawer.closeDrawers();
+                        break;
                     case R.id.nav_bills:
                         i = new Intent(getApplicationContext(), MyBillsActivity.class);
                         startActivity(i);

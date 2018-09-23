@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.common.util.CollectionUtils;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
@@ -70,13 +71,12 @@ public class MyBillsActivity extends AppCompatActivity {
         params.height = Utils.getScreenWidth();
         bgImage.setLayoutParams(params);
 
-        if (bills.isEmpty()) {
+        if (CollectionUtils.isEmpty(bills)) {
             emptyListView.setVisibility(View.VISIBLE);
         } else {
             emptyListView.setVisibility(View.GONE);
+            initRecyclerView();
         }
-
-        initRecyclerView();
     }
 
     private void initRecyclerView() {

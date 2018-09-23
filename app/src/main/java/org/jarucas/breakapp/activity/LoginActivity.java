@@ -2,6 +2,7 @@ package org.jarucas.breakapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -29,11 +30,13 @@ import java.util.List;
 
 /**
  * Created by Javier on 07/08/2018.
+ * TODO - This Activity needs a code refactor.
  */
 
 public class LoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 123;
     private static final boolean IS_SMART_LOCK_ENABLED = true;
+    public static final String PROFILE_IMAGE_PLACEHOLDER = "http://drjollydiagnostics.com/wp-content/uploads/2017/11/profile-placeholder.png";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         //TODO - Move to a Users class
         final UserModel user = new UserModel(uid, usuario.getDisplayName(), usuario.getEmail(),
                 new Date().getTime(), new Date().getTime(), usuario.getPhoneNumber(),
-                usuario.getPhotoUrl().toString(), null, null, null,
+                usuario.getPhotoUrl() == null ? PROFILE_IMAGE_PLACEHOLDER : usuario.getPhotoUrl().toString(), null, null, null,
                 usuario.getProviders(), null);
         db.collection("users").document(uid).set(user);
         App.setmUser(user);
@@ -101,10 +104,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginSuccessfull(final FirebaseUser usuario) {
-        Utils.showCustomToast(this, getString(R.string.Login_welcome) + " " + usuario.getDisplayName());
-        Intent i = new Intent(this, MapsActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+        if (!usuario.isEmailVerified()) {
+            AuthUI.getInstance().signOut(this);
+            finish();
+        } else {
+            Utils.showCustomToast(this, getString(R.string.Login_welcome) + " " + usuario.getDisplayName());
+            Intent i = new Intent(this, MapsActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -134,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
             usuario.sendEmailVerification();
             Utils.showCustomToast(this, getString(R.string.login_verify));
             //TODO Verification Activity
+            AuthUI.getInstance().signOut(this);
             finish();
         }
     }
